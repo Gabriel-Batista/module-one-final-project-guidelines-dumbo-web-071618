@@ -1,5 +1,15 @@
 require_relative "config/environment.rb"
 
+prompt = TTY::Prompt.new
+
+prompt.select("Choose an option.") do |menu|
+  menu.choice 'Display all Todos.'
+  menu.choice 'Display Todos for file.'
+  menu.choice 'Login User'
+  menu.choice 'Scan all Files in Present Working Directory.'
+  menu.choice 'Display all Todos for logged in User.'
+end
+
 class Doit < Thor
   desc "all", "Returns all todos for all user"
   method_option :all, :aliases => "-a", :desc => "Displays all todos"
